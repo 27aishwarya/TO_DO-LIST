@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO LIST</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+    }
+    body{
+        width : 100vw;
+        height : 100vh;
+        justify-content:center;
+        align-items:center;
+        display : flex;
+    }
+    .container{
+        background-color:rgb(248, 210, 216);
+        min-width:20%;
+        max-width: auto;
+        justify-content:center;
+        align-items:center;
+        
+        padding : 20px;
+      
+    }
+    h1{
+        font-size:30px;
+        padding:10px;
+    }
+
+    .list input{
+        width:200px;
+        height:40px;
+        border-radius:10px;
+        outline:none;
+        border:rgb(174, 170, 170);
+        MARGIN-LEFT:10PX;
+
+    }
+    .list img{
+        margin-top:30px;
+        height:40px;
+        width:40px;
+    }
+    .list button{
+        width:70px;
+        height:37px;
+        border-radius:10px;
+        background-color:darkorange;
+        outline:none;
+        border:none;
+        cursor:pointer;
+
+    }
+    button:hover{
+        background-color:green;
+        color:white;
+    }
+    ul li{
+        list-style:none;
+        padding:10px;
+        font-size:10px;
+        cursor:pointer;
+        position:relative;
+        display : flex;
+        border : 1x soldid blue;
+        align-items: center;
+        justify-content: left;
+        font-size:15px;
+
+    }
+    ul li::before{
+        content:'';
+        /* position:absolute; */
+        height:20px;
+        width:20px;
+        border-radius:50%;
+        background-image:url(unchecked.jpg);
+        background-size:cover;
+        background-position: center;
+        top:15px;
+        left:10px;
+
+       
+    }
+    ul li.checked{
+
+        text-decoration:line-through;     
+        color:rgb(105, 121, 121);
+
+    }
+    ul li.checked::before{
+
+         background-image:url(checked.jpg); 
+        /* background-image: url(C:\Coding\Website\Aishu\website\bubble.jpg); */
+
+    }
+
+</style>
+<body>
+    <div class="container">
+        <div class="list">
+        <h1>TO-DO LIST <img src="todo.jpeg"></h1>
+        <input type="text" id="input" placeholder=" Add your task">
+        <button onclick="clickk()" >Add </button>
+        </div>
+        <ul id="list"></ul>
+        
+        
+    </div>
+    <script>
+        var a = document.getElementById("input");
+        var b = document.getElementById("list");
+        function clickk(){
+            if(!a.value){
+                alert("Please write something")
+            }
+            else{
+            var c = document.createElement("li");
+            c.innerHTML = a.value;
+            list.appendChild(c);
+            console.log(a.value);
+            a.value = ""
+
+            }
+            
+        }
+        list.addEventListener('click',(e) => {
+            const listItem = e.target;
+            listItem.classList.toggle("checked")
+
+        })
+    </script>
+    
+</body>
+</html>
